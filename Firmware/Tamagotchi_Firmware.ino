@@ -89,7 +89,7 @@ void updatePet() {
 unsigned long lastButtonPress = 0;
 
 void checkButtons() {
-  if (millis() - lastButtonPress < 200) return;  // debounce: ignore presses within 200ms
+  if (millis() - lastButtonPress < 200) return; 
 
   if (digitalRead(BTN_LEFT) == LOW) {
     currentScreen = SCREEN_FEED;
@@ -147,7 +147,7 @@ void handleScreenLogic() {
       break;
 
     case SCREEN_MAIN:
-      break;  // do nothing, just display stats
+      break;  
   }
 }
 
@@ -266,14 +266,14 @@ void drawBar(int x, int y, int value) {
   int barHeight = 6;
   int fillWidth = map(value, 0, 100, 0, barWidth);
 
-  display.drawRect(x, y, barWidth, barHeight, SSD1306_WHITE);       // outline
-  display.fillRect(x, y, fillWidth, barHeight, SSD1306_WHITE);      // filled portion
+  display.drawRect(x, y, barWidth, barHeight, SSD1306_WHITE);       
+  display.fillRect(x, y, fillWidth, barHeight, SSD1306_WHITE);     
 }
 
 void loop() {
-  checkButtons();       // 1. Read input
-  updatePet();          // 2. Update state over time
-  handleScreenLogic();  // 3. Process actions
-  render();             // 4. Display results
-  delay(100);           // 5. Short pause
+  checkButtons();       
+  updatePet();         
+  handleScreenLogic();  
+  render();            
+  delay(100);           
 }
