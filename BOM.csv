@@ -1,10 +1,3 @@
 SR.NO,ITEMS,QUANTITY,UNIT PRICE,TOTAL PRICE,URL
-1,PCB (From JLCPCB),5 (Minimun),$5 (Including Shipping),$25,In my Cart.
-2,Seeed XIAO nRF52840,2 (One for each side),$12.50 (Including Shipping),$25,https://robocraze.com/products/seeed-studio-xiao-nrf52840-development-board-supports-bluetooth-5-0
-3,Gateron LP 2.0 Switches,70,$0.185 (Including Shipping),$13,https://meckeys.com/shop/accessories/keyboard-accessories/key-switches/gateron-low-profile-2-0-mechanical-switch-3pin/
-4,Blank DSA Keycaps 1U,70,$0.207 (Including Shipping),$14.5,https://meckeys.com/shop/accessories/keyboard-accessories/keycaps/blank-dsa-keycaps-1u/
-5,3.7V LiPo Batteries,2 (One for each side),$1.615 (Including Shipping),$3.23,https://quartzcomponents.com/products/3-7v-1000mah-li-po-rechargeable-battery
-6,1N4148WS T4 Switching Diode,70,$0.025 (Including Shipping),$1.78,https://quartzcomponents.com/collections/smd-diodes/products/1n4148ws-t4-switching-diode-sod-123-smd-package
-7,3D Prints,4 Files,Printing Legion,$5 - $7 (Shipping),#print-legion-india On Slack
-8,Glue & Decals bought locally.,Not Fix,Paid By Me,$0,I wish the local shop had a website to check available stuff on!
-Total:,8+,215+,-,$90  +/-  $5 - $10,
+1,Xiao ESP32 C3,1,₹599 ($6.31),₹650 ($6.85)(Including Shipping),https://robocraze.com/products/seeed-studio-xiao-esp32c3
+2,
