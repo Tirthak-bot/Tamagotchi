@@ -1,8 +1,9 @@
 SR.NO,ITEMS,QUANTITY,UNIT PRICE,TOTAL PRICE,URL
-1,Xiao ESP32 C3,1,₹599 ($6.31),₹650 ($6.85)(Including Shipping),https://robocraze.com/products/seeed-studio-xiao-esp32c3
-2,1.3 inch I2C OLED Display,1,₹320 ($3.38),₹370 ($3.90)(Including Shipping),https://robu.in/product/1-3-inch-i2c-iic-oled-lcd-module-4pin-with-vcc-gnd-white/
-3,12x12x7.3mm Tactile Push Button,10(Required 6 but moq 10),₹5.5 ($0.058),₹55 ($0.58)(Shipping Already included above as ordering from the same website),https://robu.in/product/12x12x7-3mm-tactile-push-button-switch-10pcs/
-4,12 x 9.5mm 3V Active Electromagnetic Buzzer,1,₹14 ($0.15),₹14 ($0.15)(Shipping Already included above as ordering from the same website),https://robu.in/product/3v-active-electromagnetic-buzzer-pack-of-5/
-5,1000mAh Rechargeable 3.7v LiPo Battery,1,₹311 ($3.28),₹311 ($3.28)(Shipping Already included above as ordering from the same website),https://robocraze.com/products/witty-fox-1000mah-rechargeable-3-7v-lipo-battery
+1,Xiao ESP32 C3,1,₹599 ($6.31),₹650 ($6.85) (Including Shipping),https://robocraze.com/products/seeed-studio-xiao-esp32c3
+2,1.3 inch I2C OLED Display,1,₹320 ($3.38),₹370 ($3.90)( Including Shipping),https://robu.in/product/1-3-inch-i2c-iic-oled-lcd-module-4pin-with-vcc-gnd-white/
+3,12x12x7.3mm Tactile Push Button,10(Required 6 but moq 10),₹5.5 ($0.058),₹55 ($0.58) (Shipping Already included above as ordering from the same website),https://robu.in/product/12x12x7-3mm-tactile-push-button-switch-10pcs/
+4,12 x 9.5mm 3V Active Electromagnetic Buzzer,1,₹14 ($0.15),₹14 ($0.15) (Shipping Already included above as ordering from the same website),https://robu.in/product/3v-active-electromagnetic-buzzer-pack-of-5/
+5,1000mAh Rechargeable 3.7v LiPo Battery,1,₹311 ($3.28),₹311 ($3.28) (Shipping Already included above as ordering from the same website),https://robocraze.com/products/witty-fox-1000mah-rechargeable-3-7v-lipo-battery
 6,SK6812-MINI-E Neopixel LEDs,8,0 (Self Sourced),0 (Self Sourced),LCSC Part #C5149201
-7,40x2 Pin 2.54mm Pitch Male Berg Strip (To Connect Stuff ofc),1,₹10 ($0.11),₹10 ($0.11)(Shipping Already included above as ordering from the same website),https://robocraze.com/products/40x2-pin-2-54mm-pitch-male-berg-strip
+7,40x2 Pin 2.54mm Pitch Male Berg Strip (To Connect Stuff ofc),1,₹10 ($0.11),₹10 ($0.11) (Shipping Already included above as ordering from the same website),https://robocraze.com/products/40x2-pin-2-54mm-pitch-male-berg-strip
+8,12x12x7.3 mm Round Cap for Square tactile Switch,6,₹3 ($0.32),₹18 ($0.19) (Shipping Already included above as ordering from the same website),https://robu.in/product/12x12x7-3-mm-round-cap-for-square-tactile-switch
