@@ -25,4 +25,24 @@ The firmware is written in C++ and will be edited/deployed from Arduino IDE.
 
 # BOM
 
+SR.NO,ITEMS,QUANTITY,UNIT PRICE,TOTAL PRICE,URL
+1,Xiao ESP32 C3,1,₹599 ($6.31),₹650 ($6.85) (Including Shipping),https://robocraze.com/products/seeed-studio-xiao-esp32c3
+2,1.3 inch I2C OLED Display,1,₹320 ($3.38),₹370 ($3.90)( Including Shipping),https://robu.in/product/1-3-inch-i2c-iic-oled-lcd-module-4pin-with-vcc-gnd-white/
+3,12x12x7.3mm Tactile Push Button,10 (Required 6 but MOQ 10),₹5.5 ($0.058),₹55 ($0.58) (Shipping Already included above as ordering from the same website),https://robu.in/product/12x12x7-3mm-tactile-push-button-switch-10pcs/
+4,12 x 9.5mm 3V Active Electromagnetic Buzzer,1,₹14 ($0.15),₹14 ($0.15) (Shipping Already included above as ordering from the same website),https://robu.in/product/3v-active-electromagnetic-buzzer-pack-of-5/
+5,1000mAh Rechargeable 3.7v LiPo Battery,1,₹311 ($3.28),₹311 ($3.28) (Shipping Already included above as ordering from the same website),https://robocraze.com/products/witty-fox-1000mah-rechargeable-3-7v-lipo-battery
+6,SK6812-MINI-E Neopixel LEDs,8,0 (Self Sourced),0 (Self Sourced),LCSC Part #C5149201
+7,40x2 Pin 2.54mm Pitch Male Berg Strip (To Connect Stuff ofc),1,₹10 ($0.11),₹10 ($0.11) (Shipping Already included above as ordering from the same website),https://robocraze.com/products/40x2-pin-2-54mm-pitch-male-berg-strip
+8,12x12x7.3 mm Round Cap for Square tactile Switch,6,₹3 ($0.032),₹18 ($0.19) (Shipping Already included above as ordering from the same website),https://robu.in/product/12x12x7-3-mm-round-cap-for-square-tactile-switch
+9,M3x6 mm Brass Heat Set Inserts,25 (Required 3 but MOQ 25),₹3.6 ($0.038), ₹90 ($1.00) (Shipping Already included above as ordering from the same website),https://robu.in/product/m3-x-6-mm-brass-heat-set-knurl-threaded-round-insert-nut-25-pcs/
+10,Philips Head M3 X 8 mm Bolt,25 (Required 3 but MOQ 25),₹1 ($0.01),₹25 ($0.26) (Shipping Already included above as ordering from the same website),https://robu.in/product/easymech-ss-304-pan-philips-head-m3-x-8-mm-bolt-25-pcs/
+11,3X3 mm Round Magnets,100 (Required 22 but MOQ 100),₹5 ($0.06),₹500 ($5.28) (Free Shipping) (A Bit Overpriced-But the best i could get from a website which supoorts HCB),https://amzn.in/d/0g2eK8mr 
+12,Lanyard,1,0 (Self Sourced), 0 (Self Sourced),https://amzn.in/d/03Kt7OoU
+13,Solder Wire 60/40 - 50gm,1,₹219 ($2.31),₹219 ($2.31) (Shipping Already included above as ordering from the same website),https://robocraze.com/products/noel-solder-wire-60-40-50gm-pack
+14,3D Printed Case,1,-, ₹50 ($0.53) in Filament (Around 50gms),I own a 3D Printer yayaya (Will Print it in Pink PLA Translucent)
+15,Super Glue (To Stick The Magnets To The Case),-,0 (Self Sourced), 0 (Self Sourced),https://amzn.in/d/032gD5EX
+16,PCB (From Aivon PCB),5 (MOQ),$0.20, $2.00 (Including Shipping) ,In my Cart ofc (Hope that the Price stays the same sobb)
+,,,,,
+,TOTAL,,,₹2500 ($26.30) (Including all taxes and shipping),
+
 
