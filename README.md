@@ -13,3 +13,8 @@ The Battery on this should last around 15 hrs :>
 # Schematic
 <img width="2200" height="1700" alt="Tamagotchi Schematic" src="https://github.com/user-attachments/assets/2265dfb7-a44b-4b5a-9bfc-c2bdd9f583e8" />
 
+# PCB
+<img width="720" height="250" alt="Tamagotchi PCB" src="https://github.com/user-attachments/assets/dfe8777a-2df2-4f80-b855-ea8a335e3441" />
+
+
+
