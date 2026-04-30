@@ -1,7 +1,12 @@
 # Tamagotchi
 A Custom Tanmagotchi made using ESP32 C3.
-<img width="1366" height="573" alt="Render 1" src="https://github.com/user-attachments/assets/318fddd0-df45-4939-83e3-82e30533d11c" />
-<img width="1366" height="573" alt="Render 2" src="https://github.com/user-attachments/assets/9ba1a482-6468-4b6e-b778-c36ce941b50f" />
-<img width="1366" height="573" alt="Render 3" src="https://github.com/user-attachments/assets/a0f26a66-3f63-4745-857e-3433fba2a03f" />
 
+<img width="400" height="565.85" alt="Tamagotchi Zine Page" src="https://github.com/user-attachments/assets/dd01af63-02cb-4d4c-a385-17aa782e926d" />
+<img width="400" height="565.5" alt="Render Compilation" src="https://github.com/user-attachments/assets/e80d57af-8c34-403d-ac80-b14453d5d344" />
+
+
+Using this is pretty straight forward, connect the Tamagotchi to Arduino IDE, Select the board as Xiao ESP32 C3 and Flash the Firmware! <br>
+The Battery on this should last around 15 hrs :>
+
+# Schematic
 
