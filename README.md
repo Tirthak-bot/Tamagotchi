@@ -1,6 +1,6 @@
 # Tamagotchi
 
-A Custom Tanmagotchi made using ESP32 C3. <br>
+A Custom Tanmagotchi made using The Xiao ESP32 C3. <br>
 Designed in KiCad and Fusion 360!
 
 <img width="400" height="565.85" alt="Tamagotchi Zine Page" src="https://github.com/user-attachments/assets/dd01af63-02cb-4d4c-a385-17aa782e926d" />
@@ -16,5 +16,13 @@ The Battery on this should last around 15 hrs :>
 # PCB
 <img width="720" height="250" alt="Tamagotchi PCB" src="https://github.com/user-attachments/assets/dfe8777a-2df2-4f80-b855-ea8a335e3441" />
 
+# Case
+<img width="1366" height="573" alt="Render 5" src="https://github.com/user-attachments/assets/d0cb45ac-b2b6-4ac0-8547-2d0f392a1539" />
+
+# Firmware
+
+The firmware is written in C++ and will be edited/deployed from Arduino IDE.
+
+# BOM
 
 
