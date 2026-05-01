@@ -17,6 +17,9 @@ The Battery on this should last around 15 hrs :>
 <img width="720" height="250" alt="Tamagotchi PCB" src="https://github.com/user-attachments/assets/dfe8777a-2df2-4f80-b855-ea8a335e3441" />
 
 # Case
+
+The two halfs of the case are joined using magnets and the PCB is screwed into the Bottom case using M3 screws.
+
 <img width="1366" height="573" alt="Render 5" src="https://github.com/user-attachments/assets/d0cb45ac-b2b6-4ac0-8547-2d0f392a1539" />
 
 # Firmware
