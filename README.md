@@ -38,13 +38,14 @@ The firmware is written in C++ and will be edited/deployed from Arduino IDE.
 |6.|SK6812-MINI-E Neopixel LEDs|8|0 (Self Sourced)|0 (Self Sourced)|LCSC Part #C5149201|
 |7.|40x2 Pin 2.54mm Pitch Male Berg Strip (To Connect Stuff ofc)|1|₹10 ($0.11)|₹10 ($0.11) (Shipping Already included above)|https://robocraze.com/products/40x2-pin-2-54mm-pitch-male-berg-strip|
 |8.|12x12x7.3 mm Round Cap for Square tactile Switch|6|₹3 ($0.032)|₹18 ($0.19) (Shipping Already included above)|https://robu.in/product/12x12x7-3-mm-round-cap-for-square-tactile-switch|
-|9.|M3x6 mm Brass Heat Set Inserts|25 (Required 3 but MOQ 25)|₹3.6 ($0.038)| ₹90 ($1.00) (Shipping Already included above)|https://robu.in/product/m3-x-6-mm-brass-heat-set-knurl-threaded-round-insert-nut-25-pcs/|
-|10.|Philips Head M3 X 8 mm Bolt|25 (Required 3 but MOQ 25)|₹1 ($0.01)|₹25 ($0.26) (Shipping Already included above)|https://robu.in/product/easymech-ss-304-pan-philips-head-m3-x-8-mm-bolt-25-pcs/|
-|11.|3X3 mm Round Magnets|100 (Required 22 but MOQ 100)|₹5 ($0.06)|₹500 ($5.28) (Free Shipping) (A Bit Overpriced-But the best i could get from a website which supports HCB)|https://amzn.in/d/0g2eK8mr|
+|9.|M3x6 mm Brass Heat Set Inserts|25 (Required 3 but MOQ 25)|₹4.8 ($0.05)| ₹145 ($1.52) (Including shipping and tax|https://onlyscrews.in/products/m3-x-6mm-3d-printing-brass-threaded-inserts-dia-3mm-length-6mm?variant=51684594909497|
+|10.|M3 Hex Screw Set|1|₹240 ($2.52)|₹265 ($2.80) (Including shipping and tax)|https://onlyscrews.in/products/m3-allen-button-head-ss304-assorted-box?variant=50368948863289|
+|11.|3X3 mm Round Magnets N35|25|₹9.5 ($0.10)|₹260 ($2.73) (Including shipping and tax)|https://onlyscrews.in/products/3mm-x-3mm-neodymium-disc-magnets-n35-dia-3mm-thickness-3mm?variant=51058518262073| 
 |12.|Lanyard|1|0 (Self Sourced)| 0 (Self Sourced)|https://amzn.in/d/03Kt7OoU|
 |13.|Solder Wire 60/40 - 50gm|1|₹219 ($2.31)|₹219 ($2.31) (Shipping Already included above)|https://robocraze.com/products/noel-solder-wire-60-40-50gm-pack|
 |14.|3D Printed Case|1|-| ₹50 ($0.53) in Filament (Around 50gms)|I own a 3D Printer yayaya (Will Print it in Pink PLA Translucent)|
 |15.|Super Glue (To Stick The Magnets To The Case)|-|0 (Self Sourced)| 0 (Self Sourced)|https://amzn.in/d/032gD5EX|
 |16.|PCB (From Aivon PCB)|5 (MOQ)|$0.20| $2.00 (Including Shipping)|In my Cart ofc (Hope that the Price stays the same sobb)|
+|17.|Hex Allen Ket Set|1|₹248 ($2.60)|₹275 ($2.90) (Including tax and shipping)|https://onlyscrews.in/products/eastman-9-pcs-hex-allen-key-set?variant=51184779362617|
 |||||||
-||TOTAL|||₹2500 ($26.30) (Including all taxes and shipping)|
+||TOTAL|||₹2850 ($30.00) (Including all taxes and shipping)|
