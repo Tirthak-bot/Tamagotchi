@@ -10,6 +10,8 @@ Designed in KiCad and Fusion 360!
 Using this is pretty straight forward, connect the Tamagotchi to Arduino IDE, Select the board as Xiao ESP32 C3 and Flash the Firmware! 
 The Battery on this should last around 15 hrs :>
 
+I wanna build a Tamagotchi because i never had one and what's the fun in buying one!
+
 # Schematic
 <img width="2200" height="1700" alt="Tamagotchi Schematic" src="https://github.com/user-attachments/assets/2265dfb7-a44b-4b5a-9bfc-c2bdd9f583e8" />
 
