@@ -3,19 +3,33 @@
 A Custom Tanmagotchi made using The Xiao ESP32 C3. <br>
 Designed in KiCad and Fusion 360!
 
-<img width="400" height="565.85" alt="Tamagotchi Zine Page" src="https://github.com/user-attachments/assets/2e430a2a-cc47-4e0c-8158-a6d85c47f27d" />
+<img width="500" height="707" alt="Beige Pink  Retro Game Arcade Poster (1)" src="https://github.com/user-attachments/assets/9d067bb4-5ad1-4d01-8f85-7d544d35dce5" />
 
----
-<img width="300" height="293" alt="IMG_20260521_132635066-removebg-preview" src="https://github.com/user-attachments/assets/c12a6023-52df-442a-948b-aa9f223f837a" />: <img width="300" height="225" alt="IMG_20260521_135610531" src="https://github.com/user-attachments/assets/a6e06449-3105-48da-ac3b-d68411b8e667" />: <img width="225" height="300" alt="IMG_20260520_202827706 (1)" src="https://github.com/user-attachments/assets/33cacb53-4f38-4765-bc49-f97c90f307b6" />
----
+<br>
+<br>
 
+||IRL IMAGES||
+|----|----|----|
+|<img width="300" height="293" alt="IMG_20260521_132635066-removebg-preview" src="https://github.com/user-attachments/assets/c12a6023-52df-442a-948b-aa9f223f837a" />| <img width="300" height="225" alt="IMG_20260521_135610531" src="https://github.com/user-attachments/assets/a6e06449-3105-48da-ac3b-d68411b8e667" />| <img width="300" height="400" alt="IMG_20260520_202827706 (1)" src="https://github.com/user-attachments/assets/33cacb53-4f38-4765-bc49-f97c90f307b6" />|
 
+||RENDERS||
+|----|----|----|
+|<img width="300" height="265" alt="Render 1 edited" src="https://github.com/user-attachments/assets/1ddac828-7575-450c-a2e2-309c3551fc8d" /> | <img width="300" height="275" alt="Render 2 edited" src="https://github.com/user-attachments/assets/4330860f-b9b1-4bc0-b5fe-30013b48c9fd" /> | <img width="300" height="354" alt="Render 4 edited" src="https://github.com/user-attachments/assets/a5f4175a-98de-42a1-8d83-66120d33aec0" /> |
 
-
+<br>
+The irl build looks a bit weird because i couldn't get my hands on the PCB so i had to handwire it sobbbb.
+ <br>
+ <br>
 Using this is pretty straight forward, connect the Tamagotchi to Arduino IDE, Select the board as Xiao ESP32 C3 and Flash the Firmware! 
+<br>
 The Battery on this should last around 15 hrs :>
-
+<br>
+<br>
 I wanna build a Tamagotchi because i never had one and what's the fun in buying one!
+<br>
+<br> 
+Demo Video: https://youtube.com/shorts/sFA_lzHIbYA?feature=share
+
 
 # Schematic
 <img width="2200" height="1700" alt="Tamagotchi Schematic" src="https://github.com/user-attachments/assets/2265dfb7-a44b-4b5a-9bfc-c2bdd9f583e8" />
