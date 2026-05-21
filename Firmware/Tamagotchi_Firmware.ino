@@ -1,39 +1,35 @@
-#define BTN1 9   
-#define BTN2 8   
-#define BTN3 20   
+#include <Wire.h>
+#include <U8g2lib.h>
+
+// OLED setup (SSD1306, I2C, full buffer)
+U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE, /* clock=*/7, /* data=*/6);
+
+#define BTN1 9
+#define BTN2 8
+#define BTN3 20
 #define BTN4 21
 #define BTN5 5
 #define BTN6 4
 
-#define SDA_PIN 6 
-#define SCL_PIN 7  
+#define SDA_PIN 6
+#define SCL_PIN 7
+#define BUZZER 10
 
-#define BUZZER 10   
-
-#include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-
-#define SCREEN_WIDTH 128
-#define SCREEN_HEIGHT 64
-#define OLED_RESET -1
-
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-
-#define BTN_UP D9
-#define BTN_LEFT D8
-#define BTN_DOWN D7
-#define BTN_RIGHT D6
-#define BTN_TOP D3
-#define BTN_BOTTOM D2
-#define BUZZER_PIN D10
+#define BTN_UP BTN1
+#define BTN_LEFT BTN2
+#define BTN_DOWN BTN3
+#define BTN_RIGHT BTN4
+#define BTN_TOP BTN5
+#define BTN_BOTTOM BTN6
+#define BUZZER_PIN BUZZER
 
 struct Pet {
-  int hunger;       // 0 to 100 (0 = starving, 100 = full)
-  int happiness;    // 0 to 100 (0 = miserable, 100 = ecstatic)
-  int energy;       // 0 to 100 (0 = exhausted, 100 = fully rested)
-  unsigned long age; // total seconds the pet has been alive
+  int hunger;
+  int happiness;
+  int energy;
+  unsigned long age;
 };
+Pet pet;
 
 enum Screen {
   SCREEN_MAIN,
@@ -41,26 +37,47 @@ enum Screen {
   SCREEN_PLAY,
   SCREEN_SLEEP
 };
-
 Screen currentScreen = SCREEN_MAIN;
 
+unsigned long lastUpdate = 0;
+unsigned long lastButtonPress = 0;
+
+// --- Bitmaps/emojis (16x16) ---
+const unsigned char petHappy[] PROGMEM = {
+  0x00,0x00,0x1F,0xF8,0x20,0x04,0x40,0x02,
+  0x4C,0x32,0x4C,0x32,0x40,0x02,0x40,0x02,
+  0x44,0x22,0x43,0xC2,0x40,0x02,0x20,0x04,
+  0x1F,0xF8,0x00,0x00,0x00,0x00,0x00,0x00
+};
+const unsigned char petSad[] PROGMEM = {
+  0x00,0x00,0x1F,0xF8,0x20,0x04,0x40,0x02,
+  0x4C,0x32,0x4C,0x32,0x40,0x02,0x40,0x02,
+  0x40,0x02,0x43,0xC2,0x44,0x22,0x20,0x04,
+  0x1F,0xF8,0x00,0x00,0x00,0x00,0x00,0x00
+};
+const unsigned char petNeutral[] PROGMEM = {
+  0x00,0x00,0x1F,0xF8,0x20,0x04,0x40,0x02,
+  0x4C,0x32,0x4C,0x32,0x40,0x02,0x40,0x02,
+  0x47,0xE2,0x40,0x02,0x40,0x02,0x20,0x04,
+  0x1F,0xF8,0x00,0x00,0x00,0x00,0x00,0x00
+};
+const unsigned char petSleep[] PROGMEM = {
+  0x00,0x00,0x1F,0xF8,0x20,0x04,0x40,0x02,
+  0x4F,0x72,0x40,0x02,0x40,0x02,0x40,0x02,
+  0x43,0xC2,0x40,0x02,0x40,0x02,0x20,0x04,
+  0x1F,0xF8,0x00,0x00,0x00,0x00,0x00,0x00
+};
+
 void setup() {
-  pinMode(BTN_LEFT, INPUT_PULLUP);
-  pinMode(BTN_TOP, INPUT_PULLUP);
-  pinMode(BTN_RIGHT, INPUT_PULLUP);
-  pinMode(BTN_BOTTOM, INPUT_PULLUP);
   pinMode(BTN_UP, INPUT_PULLUP);
+  pinMode(BTN_LEFT, INPUT_PULLUP);
   pinMode(BTN_DOWN, INPUT_PULLUP);
+  pinMode(BTN_RIGHT, INPUT_PULLUP);
+  pinMode(BTN_TOP, INPUT_PULLUP);
+  pinMode(BTN_BOTTOM, INPUT_PULLUP);
   pinMode(BUZZER_PIN, OUTPUT);
 
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(SSD1306_WHITE);
-  display.setCursor(0, 0);
-  display.println("Tamagotchi Init...");
-  display.display();
-  delay(1000);
+  u8g2.begin();
 
   pet.hunger = 80;
   pet.happiness = 80;
@@ -68,212 +85,68 @@ void setup() {
   pet.age = 0;
 }
 
-
-unsigned long lastUpdate = 0;
-
 void updatePet() {
-  if (millis() - lastUpdate > 5000) {  
-    pet.hunger--;
-    pet.happiness--;
-    pet.energy--;
-
-    if (pet.hunger < 0) pet.hunger = 0;
-    if (pet.happiness < 0) pet.happiness = 0;
-    if (pet.energy < 0) pet.energy = 0;
-
+  if (millis() - lastUpdate > 5000) {
+    pet.hunger = max(0, pet.hunger - 1);
+    pet.happiness = max(0, pet.happiness - 1);
+    pet.energy = max(0, pet.energy - 1);
     pet.age += 5;
     lastUpdate = millis();
   }
 }
 
-unsigned long lastButtonPress = 0;
-
 void checkButtons() {
-  if (millis() - lastButtonPress < 200) return; 
+  if (millis() - lastButtonPress < 200) return;
 
-  if (digitalRead(BTN_LEFT) == LOW) {
-    currentScreen = SCREEN_FEED;
-    tone(BUZZER_PIN, 1000, 50);
-    lastButtonPress = millis();
-  }
-  else if (digitalRead(BTN_UP) == LOW) {
-    currentScreen = SCREEN_PLAY;
-    tone(BUZZER_PIN, 1200, 50);
-    lastButtonPress = millis();
-  }
-  else if (digitalRead(BTN_RIGHT) == LOW) {
-    currentScreen = SCREEN_SLEEP;
-    tone(BUZZER_PIN, 800, 50);
-    lastButtonPress = millis();
-  }
-  else if (digitalRead(BTN_DOWN) == LOW) {
-    currentScreen = SCREEN_FEED;
-    tone(BUZZER_PIN, 1200, 50);
-    lastButtonPress = millis();
-  }
-  else if (digitalRead(BTN_TOP) == LOW) {
-    currentScreen = SCREEN_PLAY;
-    tone(BUZZER_PIN, 1400, 50);
-    lastButtonPress = millis();
-  }
-  else if (digitalRead(BTN_BOTTOM) == LOW) {
-    currentScreen = SCREEN_SLEEP;
-    tone(BUZZER_PIN, 1000, 50);
-    lastButtonPress = millis();
-  }
+  if (digitalRead(BTN_LEFT) == LOW) { currentScreen = SCREEN_FEED; tone(BUZZER_PIN, 1000, 50); lastButtonPress = millis(); }
+  else if (digitalRead(BTN_UP) == LOW) { currentScreen = SCREEN_PLAY; tone(BUZZER_PIN, 1200, 50); lastButtonPress = millis(); }
+  else if (digitalRead(BTN_RIGHT) == LOW) { currentScreen = SCREEN_SLEEP; tone(BUZZER_PIN, 800, 50); lastButtonPress = millis(); }
+  else if (digitalRead(BTN_DOWN) == LOW) { currentScreen = SCREEN_FEED; tone(BUZZER_PIN, 1200, 50); lastButtonPress = millis(); }
+  else if (digitalRead(BTN_TOP) == LOW) { currentScreen = SCREEN_PLAY; tone(BUZZER_PIN, 1400, 50); lastButtonPress = millis(); }
+  else if (digitalRead(BTN_BOTTOM) == LOW) { currentScreen = SCREEN_SLEEP; tone(BUZZER_PIN, 1000, 50); lastButtonPress = millis(); }
 }
 
 void handleScreenLogic() {
   switch(currentScreen) {
-
-    case SCREEN_FEED:
-      pet.hunger += 10;
-      if (pet.hunger > 100) pet.hunger = 100;
-      currentScreen = SCREEN_MAIN;
-      break;
-
-    case SCREEN_PLAY:
-      pet.happiness += 10;
-      pet.energy -= 5;
-      if (pet.happiness > 100) pet.happiness = 100;
-      if (pet.energy < 0) pet.energy = 0;
-      currentScreen = SCREEN_MAIN;
-      break;
-
-    case SCREEN_SLEEP:
-      pet.energy += 15;
-      if (pet.energy > 100) pet.energy = 100;
-      currentScreen = SCREEN_MAIN;
-      break;
-
-    case SCREEN_MAIN:
-      break;  
+    case SCREEN_FEED: pet.hunger = min(100, pet.hunger + 10); currentScreen = SCREEN_MAIN; break;
+    case SCREEN_PLAY: pet.happiness = min(100, pet.happiness + 10); pet.energy = max(0, pet.energy - 5); currentScreen = SCREEN_MAIN; break;
+    case SCREEN_SLEEP: pet.energy = min(100, pet.energy + 15); currentScreen = SCREEN_MAIN; break;
+    case SCREEN_MAIN: break;
   }
-}
-
-const unsigned char PROGMEM petHappy[] = {
-  0b00000000, 0b00000000,
-  0b00011111, 0b11111000,
-  0b00100000, 0b00000100,
-  0b01000000, 0b00000010,
-  0b01001100, 0b00110010,
-  0b01001100, 0b00110010,
-  0b01000000, 0b00000010,
-  0b01000000, 0b00000010,
-  0b01000100, 0b00100010,
-  0b01000011, 0b11000010,
-  0b01000000, 0b00000010,
-  0b00100000, 0b00000100,
-  0b00011111, 0b11111000,
-  0b00000000, 0b00000000,
-  0b00000000, 0b00000000,
-  0b00000000, 0b00000000
-};
-
-const unsigned char PROGMEM petSad[] = {
-  0b00000000, 0b00000000,
-  0b00011111, 0b11111000,
-  0b00100000, 0b00000100,
-  0b01000000, 0b00000010,
-  0b01001100, 0b00110010,
-  0b01001100, 0b00110010,
-  0b01000000, 0b00000010,
-  0b01000000, 0b00000010,
-  0b01000000, 0b00000010,
-  0b01000011, 0b11000010,
-  0b01000100, 0b00100010,
-  0b00100000, 0b00000100,
-  0b00011111, 0b11111000,
-  0b00000000, 0b00000000,
-  0b00000000, 0b00000000,
-  0b00000000, 0b00000000
-};
-
-const unsigned char PROGMEM petNeutral[] = {
-  0b00000000, 0b00000000,
-  0b00011111, 0b11111000,
-  0b00100000, 0b00000100,
-  0b01000000, 0b00000010,
-  0b01001100, 0b00110010,
-  0b01001100, 0b00110010,
-  0b01000000, 0b00000010,
-  0b01000000, 0b00000010,
-  0b01000111, 0b11100010,
-  0b01000000, 0b00000010,
-  0b01000000, 0b00000010,
-  0b00100000, 0b00000100,
-  0b00011111, 0b11111000,
-  0b00000000, 0b00000000,
-  0b00000000, 0b00000000,
-  0b00000000, 0b00000000
-};
-
-const unsigned char PROGMEM petSleep[] = {
-  0b00000000, 0b00000000,
-  0b00011111, 0b11111000,
-  0b00100000, 0b00000100,
-  0b01000000, 0b00000010,
-  0b01001111, 0b01110010,
-  0b01000000, 0b00000010,
-  0b01000000, 0b00000010,
-  0b01000000, 0b00000010,
-  0b01000011, 0b11000010,
-  0b01000000, 0b00000010,
-  0b01000000, 0b00000010,
-  0b00100000, 0b00000100,
-  0b00011111, 0b11111000,
-  0b00000000, 0b00000000,
-  0b00000000, 0b00000000,
-  0b00000000, 0b00000000
-};
-
-void render() {
-  display.clearDisplay();
-
-   const unsigned char* sprite;
-  if (pet.hunger < 30 || pet.happiness < 30 || pet.energy < 30) {
-    sprite = petSad;
-  } else if (pet.hunger > 50 && pet.happiness > 50 && pet.energy > 50) {
-    sprite = petHappy;
-  } else {
-    sprite = petNeutral;
-  }
-
-display.drawBitmap(56, 2, sprite, 16, 16, SSD1306_WHITE);
-
- display.setTextSize(1);
-
-   display.setCursor(0, 24);
-  display.print("HUN ");
-  drawBar(24, 24, pet.hunger);
-
-  display.setCursor(0, 34);
-  display.print("HAP ");
-  drawBar(24, 34, pet.happiness);
-
-  display.setCursor(0, 44);
-  display.print("ENG ");
-  drawBar(24, 44, pet.energy);
-
-    display.setCursor(0, 56);
-  display.println("[Feed] [Play] [Sleep]");
-
-  display.display();
 }
 
 void drawBar(int x, int y, int value) {
   int barWidth = 100;
   int barHeight = 6;
   int fillWidth = map(value, 0, 100, 0, barWidth);
+  u8g2.drawFrame(x, y, barWidth, barHeight);
+  u8g2.drawBox(x, y, fillWidth, barHeight);
+}
 
-  display.drawRect(x, y, barWidth, barHeight, SSD1306_WHITE);       
-  display.fillRect(x, y, fillWidth, barHeight, SSD1306_WHITE);     
+void render() {
+  u8g2.clearBuffer();
+  u8g2.setFont(u8g2_font_6x10_tf);
+
+  const unsigned char* sprite;
+  if (pet.energy < 30 || pet.hunger < 30 || pet.happiness < 30) sprite = petSad;
+  else if (pet.hunger > 50 && pet.happiness > 50 && pet.energy > 50) sprite = petHappy;
+  else sprite = petNeutral;
+
+  u8g2.drawXBMP(56, 2, 16, 16, sprite);
+
+  u8g2.setCursor(0, 24); u8g2.print("HUN "); drawBar(30, 20, pet.hunger);
+  u8g2.setCursor(0, 36); u8g2.print("HAP "); drawBar(30, 32, pet.happiness);
+  u8g2.setCursor(0, 48); u8g2.print("ENG "); drawBar(30, 44, pet.energy);
+
+  u8g2.setCursor(0, 60); u8g2.print("[Feed] [Play] [Sleep]");
+
+  u8g2.sendBuffer();
 }
 
 void loop() {
-  checkButtons();       
-  updatePet();         
-  handleScreenLogic();  
-  render();            
-  delay(100);           
+  checkButtons();
+  updatePet();
+  handleScreenLogic();
+  render();
+  delay(100);
 }
