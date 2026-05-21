@@ -4,7 +4,12 @@ A Custom Tanmagotchi made using The Xiao ESP32 C3. <br>
 Designed in KiCad and Fusion 360!
 
 <img width="400" height="565.85" alt="Tamagotchi Zine Page" src="https://github.com/user-attachments/assets/2e430a2a-cc47-4e0c-8158-a6d85c47f27d" />
-<img width="400" height="565.5" alt="Render Compilation" src="https://github.com/user-attachments/assets/e80d57af-8c34-403d-ac80-b14453d5d344" />
+
+---
+<img width="300" height="293" alt="IMG_20260521_132635066-removebg-preview" src="https://github.com/user-attachments/assets/c12a6023-52df-442a-948b-aa9f223f837a" />: <img width="300" height="225" alt="IMG_20260521_135610531" src="https://github.com/user-attachments/assets/a6e06449-3105-48da-ac3b-d68411b8e667" />: <img width="225" height="300" alt="IMG_20260520_202827706 (1)" src="https://github.com/user-attachments/assets/33cacb53-4f38-4765-bc49-f97c90f307b6" />
+---
+
+
 
 
 Using this is pretty straight forward, connect the Tamagotchi to Arduino IDE, Select the board as Xiao ESP32 C3 and Flash the Firmware! 
